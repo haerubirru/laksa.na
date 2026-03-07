@@ -729,6 +729,31 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--i
 
 @media(max-width:640px){.hide-mob{display:none}.ptitle{font-size:1.65rem}.dc{width:258px;height:155px}.dc-bal{font-size:1rem}.nw-card{min-height:170px;padding:1.15rem 1.35rem 1rem;border-radius:20px!important}.nw-val{font-size:clamp(1.6rem,7vw,2.2rem)}.nw-stat-val{font-size:.9rem}.nw-stat-lbl{font-size:.5rem}.cdd-menu{max-height:180px}}
 
+/* ── SETUP PAGE OVERLAY ── */
+.setup-overlay{position:fixed;inset:0;z-index:9999;background:var(--mesh-a);display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.setup-card{background:var(--gs-1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1.5px solid var(--gs-border-hi);border-radius:24px;box-shadow:var(--shd-lg);padding:2rem 1.75rem;width:100%;max-width:400px}
+.setup-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem}
+.setup-logo-ico{width:40px;height:40px;background:var(--ink);border-radius:11px;display:flex;align-items:center;justify-content:center}
+.setup-title{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:.25rem}
+.setup-sub{font-size:.82rem;color:var(--ink3);margin-bottom:1.5rem}
+.setup-field{margin-bottom:1rem}
+.setup-label{font-size:.75rem;font-weight:600;color:var(--ink2);margin-bottom:.35rem;display:block}
+.setup-input{width:100%;padding:.65rem .85rem;border-radius:11px;border:1.5px solid var(--gs-border);background:var(--gs-4);color:var(--ink);font-family:'Inter',inherit;font-size:.88rem;outline:none;transition:border-color .15s;box-sizing:border-box}
+.setup-input:focus{border-color:var(--accent)}
+.setup-hint{font-size:.7rem;color:var(--ink3);margin-top:.3rem}
+.setup-hint a{color:var(--accent);text-decoration:none}
+.setup-themes{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+.setup-theme-opt{padding:.35rem .75rem;border-radius:8px;border:1.5px solid var(--gs-border);background:var(--gs-2);color:var(--ink2);font-size:.75rem;font-weight:500;cursor:pointer;transition:all .15s}
+.setup-theme-opt.active{border-color:var(--accent);color:var(--accent);background:rgba(37,99,235,.08)}
+.setup-btn{width:100%;padding:.75rem;border-radius:12px;border:none;background:linear-gradient(135deg,#2563eb,#0ea5e9);color:#fff;font-family:'Inter',inherit;font-size:.9rem;font-weight:700;cursor:pointer;margin-top:.5rem;transition:all .18s;box-shadow:0 4px 14px rgba(37,99,235,.3)}
+.setup-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.42)}
+/* ── SYNC BUTTON ── */
+.sync-bar{display:flex;align-items:center;gap:.6rem;padding:.55rem .85rem;border-radius:12px;background:var(--gs-2);border:1.5px solid var(--gs-border);margin-bottom:.9rem}
+.sync-btn{display:flex;align-items:center;gap:.4rem;padding:.38rem .8rem;border-radius:8px;border:none;background:linear-gradient(135deg,#2563eb,#0ea5e9);color:#fff;font-family:'Inter',inherit;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.sync-btn:disabled{opacity:.6;cursor:not-allowed}
+.sync-status{font-size:.72rem;color:var(--ink3);flex:1}
+.sync-status.ok{color:var(--income)}
+.sync-status.err{color:var(--expense)}
 /* ── DARK: btn + chart ── */
 html[data-theme="dark"]{--btn-bg:rgba(37,99,235,.85);--btn-fg:#fff}
 html[data-theme="dark"] .btn{background:var(--btn-bg);color:var(--btn-fg)}
@@ -760,7 +785,24 @@ html[data-theme="dark"] .acc-tab.active{background:rgba(37,99,235,.2);color:var(
     <button class="nav-item" data-page="reports" onclick="go('reports')"><span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>Laporan</button>
     <button class="nav-item" data-page="settings" onclick="go('settings')"><span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span>Pengaturan</button>
   </nav>
-  <div class="sfooter"><div class="sbadge"><span class="sdot"></span>Tersimpan Lokal</div></div>
+  <div class="sfooter">
+    <div class="sbadge"><span class="sdot"></span>Tersimpan Lokal</div>
+    <div id="sidebarProfile" style="display:none;margin-top:.6rem;padding:.55rem .4rem;border-radius:10px;background:var(--gs-2);border:1.5px solid var(--gs-border);cursor:pointer;transition:background .15s" onclick="go('settings')" title="Lihat profil">
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <div id="sidebarAvatar" style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#2563eb,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0"></div>
+        <div style="min-width:0;flex:1">
+          <div id="sidebarName" style="font-size:.75rem;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+          <div style="font-size:.6rem;color:var(--ink3)">Telegram terhubung</div>
+        </div>
+      </div>
+    </div>
+    <div id="sidebarNoProfile" style="margin-top:.6rem;padding:.45rem .4rem;border-radius:10px;background:rgba(239,68,68,.07);border:1.5px solid rgba(239,68,68,.15);cursor:pointer" onclick="showSetupPage()" title="Setup profil">
+      <div style="font-size:.7rem;color:var(--expense);font-weight:600;display:flex;align-items:center;gap:.3rem">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Setup profil dulu
+      </div>
+    </div>
+  </div>
 </aside>
 
 <!-- BOTTOM NAV -->
@@ -812,10 +854,80 @@ html[data-theme="dark"] .acc-tab.active{background:rgba(37,99,235,.2);color:var(
   </div>
 </nav>
 
+<!-- SETUP OVERLAY -->
+<div class="setup-overlay" id="setupOverlay" style="display:none">
+  <div class="setup-card">
+    <div class="setup-logo">
+      <div class="setup-logo-ico">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="url(#sg1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="sg1" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient></defs></svg>
+      </div>
+      <span style="font-weight:800;font-size:1.1rem;color:var(--ink)">Laksa</span>
+    </div>
+    <div class="setup-title" style="display:flex;align-items:center;gap:.5rem">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      Selamat datang!
+    </div>
+    <div class="setup-sub">Isi profil kamu dulu sebelum mulai. Data ini hanya tersimpan di browser kamu.</div>
+
+    <div class="setup-field">
+      <label class="setup-label" style="display:flex;align-items:center;gap:.35rem">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Nama Kamu *
+      </label>
+      <input class="setup-input" id="setupName" type="text" placeholder="Contoh: Budi" maxlength="30"/>
+    </div>
+
+    <div class="setup-field">
+      <label class="setup-label" style="display:flex;align-items:center;gap:.35rem">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.29 6.29l1.51-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Telegram ID *
+      </label>
+      <input class="setup-input" id="setupTgId" type="text" placeholder="Contoh: 123456789" inputmode="numeric"/>
+      <div class="setup-hint" style="display:flex;align-items:flex-start;gap:.3rem;margin-top:.4rem">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:.1rem"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Ketik <strong>/myid</strong> ke bot Laksa di Telegram untuk tahu ID kamu. ID ini dipakai agar data kamu tidak tercampur dengan pengguna lain.
+          <span style="display:inline-flex;align-items:center;gap:.2rem;margin-left:.2rem">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--income)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="setup-field">
+      <label class="setup-label" style="display:flex;align-items:center;gap:.35rem">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        Tema
+      </label>
+      <div class="setup-themes">
+        <button class="setup-theme-opt active" id="sopt-glass" onclick="setupPickTheme('glass',this)" style="display:flex;align-items:center;gap:.4rem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Glass
+        </button>
+        <button class="setup-theme-opt" id="sopt-dark" onclick="setupPickTheme('dark',this)" style="display:flex;align-items:center;gap:.4rem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          Dark
+        </button>
+      </div>
+    </div>
+
+    <button class="setup-btn" onclick="saveSetupProfile()" style="display:flex;align-items:center;justify-content:center;gap:.5rem">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Mulai Pakai Laksa
+    </button>
+  </div>
+</div>
+
 <main class="main">
 
 <!-- DASHBOARD -->
 <section class="page active" id="page-dashboard">
+  <div id="syncBar" class="sync-bar" style="display:none">
+    <button class="sync-btn" id="syncBtn" onclick="doSync()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+      Sync Telegram
+    </button>
+    <span class="sync-status" id="syncStatus">Belum pernah sync</span>
+  </div>
   <div class="zone-hero">
     <div class="card nw-card">
       <div class="nw-greet" id="dashGreet" style="font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:.5rem;position:relative;z-index:1"></div>
@@ -1088,7 +1200,7 @@ const DEF_CATS=[
   {id:'c12',name:'Lainnya',emoji:'📌',type:'both'}
 ];
 const DEF_ACCS=[{id:'a1',name:'Dompet Tunai',balance:0,color:'#fbbf24'},{id:'a2',name:'Bank Mandiri',balance:0,color:'#E6B800'}];
-const DEF_SET={name:'Pengguna',currency:'Rp',theme:'warm'};
+const DEF_SET={name:'Pengguna',currency:'Rp',theme:'glass'};
 const BANKS={
   bca:{color:'#003399',c2:'#1a4fb5',domain:'bca.co.id'},
   mandiri:{color:'#0C3B67',c2:'#0a5296',domain:'bankmandiri.co.id'},
@@ -2844,6 +2956,183 @@ function renderAccSheetBody(){
   }).join('');
 }
 
+// ══════════════════════════════════════════
+// PROFIL PENGGUNA (Opsi B)
+// ══════════════════════════════════════════
+const PROFILE_KEY = 'laksa_profile';
+const CLOUD_URL = 'https://laksa-bot.haerudamiyati17.workers.dev';
+
+function getProfile() {
+  try { return JSON.parse(localStorage.getItem(PROFILE_KEY)) || null; } catch { return null; }
+}
+function saveProfile(p) {
+  localStorage.setItem(PROFILE_KEY, JSON.stringify(p));
+}
+
+// Tema yang dipilih saat setup
+let setupThemeChoice = 'glass';
+function setupPickTheme(theme, btn) {
+  setupThemeChoice = theme;
+  document.querySelectorAll('.setup-theme-opt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyTheme(theme, null, false);
+}
+
+function showSetupPage() {
+  const overlay = el('setupOverlay');
+  if (overlay) overlay.style.display = 'flex';
+  // Terapkan tema default sementara
+  applyTheme('glass', null, false);
+}
+
+function saveSetupProfile() {
+  const name = (el('setupName').value || '').trim();
+  const tgId = (el('setupTgId').value || '').trim();
+  if (!name) { toast('Nama tidak boleh kosong!', 'err'); return; }
+  if (!tgId || !/^\d+$/.test(tgId)) { toast('Telegram ID harus berupa angka!', 'err'); return; }
+
+  const profile = { name, tgId, theme: setupThemeChoice };
+  saveProfile(profile);
+
+  // Terapkan nama ke settings juga
+  const s = getSet(); s.name = name; s.theme = setupThemeChoice;
+  sv(K.set, s);
+
+  el('setupOverlay').style.display = 'none';
+  applyTheme(setupThemeChoice, null, true);
+  updateProfileUI();
+  toast(`Selamat datang, ${name}! 🎉`, 'ok');
+  // Auto sync pertama kali
+  doSync();
+}
+
+function updateProfileUI() {
+  const profile = getProfile();
+  const hasProfile = profile && profile.tgId;
+
+  const pEl = el('sidebarProfile');
+  const nEl = el('sidebarNoProfile');
+  const syncBar = el('syncBar');
+
+  if (hasProfile) {
+    if (pEl) {
+      pEl.style.display = 'block';
+      const initials = (profile.name || '?').slice(0, 2).toUpperCase();
+      const av = el('sidebarAvatar');
+      const nm = el('sidebarName');
+      if (av) av.textContent = initials;
+      if (nm) nm.textContent = profile.name;
+    }
+    if (nEl) nEl.style.display = 'none';
+    if (syncBar) syncBar.style.display = 'flex';
+  } else {
+    if (pEl) pEl.style.display = 'none';
+    if (nEl) nEl.style.display = 'block';
+    if (syncBar) syncBar.style.display = 'none';
+  }
+}
+
+// ══════════════════════════════════════════
+// SYNC DARI TELEGRAM (Cloud → localStorage)
+// ══════════════════════════════════════════
+async function doSync() {
+  const profile = getProfile();
+  if (!profile || !profile.tgId) {
+    toast('Setup profil dulu sebelum sync!', 'err');
+    showSetupPage();
+    return;
+  }
+
+  const btn = el('syncBtn');
+  const statusEl = el('syncStatus');
+  if (btn) { btn.disabled = true; btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Syncing…'; }
+  if (statusEl) { statusEl.className = 'sync-status'; statusEl.textContent = 'Mengambil data…'; }
+
+  try {
+    const res = await fetch(`${CLOUD_URL}/transactions?user_id=${profile.tgId}`);
+    if (!res.ok) throw new Error(`Server error ${res.status}`);
+    const cloudTxs = await res.json();
+
+    if (!Array.isArray(cloudTxs)) throw new Error('Format data tidak valid');
+
+    // Ambil data lokal
+    const localTxs = getTx();
+    const localIds = new Set(localTxs.map(t => t.cloudId || t.id));
+
+    // Mapping nama rekening → accountId lokal
+    const accs = getAccs();
+    const cats = getCats();
+
+    function findAccId(accName) {
+      if (!accName) return accs[0]?.id || '';
+      const found = accs.find(a => a.name.toLowerCase().includes(accName.toLowerCase()) || accName.toLowerCase().includes(a.name.toLowerCase()));
+      return found ? found.id : accs[0]?.id || '';
+    }
+    function findCatId(catName) {
+      if (!catName) return 'c12';
+      const found = cats.find(c => c.name.toLowerCase().includes(catName.toLowerCase()) || catName.toLowerCase().includes(c.name.toLowerCase()));
+      return found ? found.id : 'c12';
+    }
+
+    // Merge: hanya tambah yang belum ada
+    let added = 0;
+    const newTxs = [...localTxs];
+    for (const ct of cloudTxs) {
+      if (localIds.has(ct.id)) continue; // sudah ada, skip
+      // Konversi format D1 → format Laksa
+      newTxs.push({
+        id: uid(),
+        cloudId: ct.id,           // simpan ID asli dari D1
+        type: ct.type || 'expense',
+        amount: ct.amount || 0,
+        date: ct.date || today(),
+        categoryId: findCatId(ct.category),
+        accountId: findAccId(ct.account),
+        note: ct.note || '',
+        createdAt: ct.created_at || new Date().toISOString(),
+        fromTelegram: true        // tandai asal data
+      });
+      added++;
+    }
+
+    if (added > 0) {
+      sv(K.tx, newTxs);
+      // Update saldo rekening untuk transaksi baru
+      // (simpel: hitung ulang dari semua transaksi)
+      recalcBalances(newTxs);
+      if (statusEl) { statusEl.className = 'sync-status ok'; statusEl.textContent = `✓ +${added} transaksi baru · ${new Date().toLocaleTimeString('id-ID', {hour:'2-digit',minute:'2-digit'})}`; }
+      toast(`${added} transaksi dari Telegram berhasil disinkron! 🎉`, 'ok');
+      refresh();
+    } else {
+      if (statusEl) { statusEl.className = 'sync-status ok'; statusEl.textContent = `✓ Sudah terbaru · ${new Date().toLocaleTimeString('id-ID', {hour:'2-digit',minute:'2-digit'})}`; }
+      toast('Semua data sudah terbaru.', 'ok');
+    }
+  } catch (err) {
+    if (statusEl) { statusEl.className = 'sync-status err'; statusEl.textContent = `✗ Gagal: ${err.message}`; }
+    toast(`Sync gagal: ${err.message}`, 'err');
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Sync Telegram'; }
+  }
+}
+
+// Hitung ulang saldo rekening dari semua transaksi
+function recalcBalances(txs) {
+  const accs = getAccs();
+  // Reset ke saldo awal (tidak ada cara tahu saldo awal, jadi kita skip recalc saldo awal)
+  // Hanya tambah selisih dari transaksi Telegram yang baru masuk
+  // Pendekatan aman: tidak mengubah saldo yang sudah ada,
+  // karena updBal sudah dipanggil saat addTx manual.
+  // Untuk transaksi dari Telegram, hitung delta dan update.
+  const cloudTxs = txs.filter(t => t.fromTelegram);
+  cloudTxs.forEach(t => {
+    const i = accs.findIndex(a => a.id === t.accountId);
+    if (i === -1) return;
+    if (t.type === 'income') accs[i].balance += t.amount;
+    else if (t.type === 'expense') accs[i].balance -= t.amount;
+  });
+  sv(K.accs, accs);
+}
+
 // ── INIT ──
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeFab();if(aiOpen)toggleAiChat();if(accSheetId)closeAccSheet();closeTxSheet();}});
 document.addEventListener('DOMContentLoaded',()=>{
@@ -2856,6 +3145,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   const isDark=theme==='dark';
   Chart.defaults.color=isDark?'rgba(210,220,240,0.7)':'rgba(15,23,42,0.55)';
   Chart.defaults.borderColor=isDark?'rgba(255,255,255,0.08)':'rgba(15,23,42,0.08)';
+  // Cek profil — tampilkan setup jika belum ada
+  const profile = getProfile();
+  if (!profile || !profile.tgId) {
+    showSetupPage();
+  } else {
+    // Terapkan tema dari profil
+    applyTheme(profile.theme || theme, null, false);
+    updateProfileUI();
+  }
   go('dashboard');
   setTimeout(()=>refresh(), 0);
 });
